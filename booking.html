@@ -1,0 +1,93 @@
+<!--On the client side, design an HTML page (booking.html) and a client-side program to take 
+inputs for a booking request, and pass them to server for processing (using XHR object). You 
+need to validate these inputs before sending them to the server: 
+
+-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+        <title>
+            Taxi Booking
+        </title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div>
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo.png" height="50">
+                        <span class="text-muted">Fanta</span>xi</a>
+                    <h6 class="text-muted">The driver is a cat. What are you doing.</h6>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="container">
+
+            <div class="booking-content card m-5">
+                <Form>
+                    <div class="input-group p-3">
+                        <div class="row g-3">
+
+                            <div class="col-6">
+                                <label for="cnameID">Name </label>
+                                <input type="text" class="form-control" name="cname" id="cnameID" required>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="phoneID">Phone </label>
+                                <input type="text" class="form-control" name="phone" id="phoneID" required>
+                            </div>
+
+                            <div class="col-2">
+                                <label for="unumberID">Unit # </label>
+                                <input type="text" class="form-control" name="unumber" id="unumberID">
+                            </div>
+
+                            <div class="col-4">
+                                <label for="snumberID">Street # </label>
+                                <input type="text" class="form-control" name="snumber" id="snumberID" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="stnameID">Street Name </label>
+                                <input type="text" class="form-control" name="stname" id="stnameID" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sbnameID">Suburb </label>
+                                <input type="text" class="form-control" name="sbname" id="sbnameID" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="dsname">Destination Suburb </label>
+                                <input type="text" class="form-control" name="dsname" id="dsnameID">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="dateID">Pick-up date </label>
+                                <input type="date" class="form-control" name="date" id="dateID" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="timeID">Pick-up Time </label>
+                                <input type="time" class="form-control" name="time" id="timeID" value="12:55" required>
+                            </div>
+
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </Form>
+            </div>
+        </div>
+    </body>
+
+</html>
