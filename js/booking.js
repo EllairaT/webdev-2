@@ -28,6 +28,12 @@ $(function () {
     },
   });
 
+  //update time to NOW when now btn is pressed
+  $("#btnNowID").on("click", function (e) {
+    e.preventDefault();
+    $("#timeID").timepicker("setTime", new Date());
+  });
+
   // suggest suburb name
   $("#sb-nameID").on("keyup", function () {
     getSuburbData($("#sb-nameID"));
@@ -45,6 +51,10 @@ $(function () {
 
   $("#ds-nameID").on("focusout", function () {
     validateSuburb($("#ds-nameID"));
+  });
+
+  $("#phoneID").on("change", function () {
+    validatePhone($("#phoneID"));
   });
 
   //validate form before submitting
@@ -114,7 +124,7 @@ function validateForm() {
       }
     });
 
-  if (validateTime()) {
+  if (validateTime() && validatePhone()) {
     flags.push(true);
   } else {
     flags.push(false);
@@ -170,4 +180,16 @@ function validateTime() {
     $("#timeID").removeClass("is-valid");
   }
   return false;
+}
+
+function validatePhone() {
+  var val = $("#phoneID");
+  var regexp = new RegExp("[-s./0-9]{10,12}$");
+  if (regexp.test(val.val())) {
+    showValidation(val, true);
+    return true;
+  } else {
+    showValidation(val, false);
+    return false;
+  }
 }

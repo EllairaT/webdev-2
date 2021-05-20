@@ -68,7 +68,7 @@
 
         <div class="container">
 
-            <div class="booking-content card m-5">
+            <div class="booking-content card border-0 m-5">
                 <form id="booking-form" autocomplete="off" novalidate>
                     <div class="input-group p-3">
                         <div class="row g-3">
@@ -81,23 +81,29 @@
 
                             <div class="col-lg-6 col-sm-12">
                                 <label for="phoneID">Phone </label>
-                                <input type="text" class="form-control" name="phone" id="phoneID" required />
-                                <div class="invalid-feedback">Please add your phone number</div>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="addon-wrapping">+64</span>
+                                    <input type="text" class="form-control" name="phone" id="phoneID" maxlength="12"
+                                        required />
+                                    <div id="feedback" class="invalid-feedback">Please add a valid phone number</div>
+                                </div>
                             </div>
 
-                            <div class="col-lg-2 col-md-5">
+                            <div class="col-lg-1 col-md-6">
                                 <label for="unumberID">Unit # </label>
-                                <input type="text" class="form-control" name="unumber" id="unumberID" />
+                                <input type="text" class="form-control" name="unumber" id="unumberID" pattern="[0-9]{3}"
+                                    maxlength="3" />
                                 <small class="text-muted">Optional</small>
                             </div>
 
-                            <div class="col-lg-4 col-md-7">
+                            <div class="col-lg-1  col-md-6">
                                 <label for="snumberID">Street # </label>
-                                <input type="text" class="form-control" name="snumber" id="s-numberID" required />
+                                <input type="text" class="form-control" name="snumber" id="s-numberID" maxlength="3"
+                                    required />
                                 <div class="invalid-feedback">Please add a street number</div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-10 col-md-12">
                                 <label for="stnameID">Street Name </label>
                                 <input type="text" class="form-control" name="stname" id="st-nameID" required />
                                 <div class="invalid-feedback">Please add a street name</div>
@@ -122,7 +128,6 @@
                                 <div class="input-group flex-nowrap">
                                     <span class="input-group-text" id="addon-wrapping"> <i
                                             class="bi bi-calendar-check-fill"></i></span>
-
                                     <input type="text" class="form-control is-valid" name="date" id="dateID"
                                         onkeydown="event.preventDefault()" required />
                                 </div>
@@ -131,18 +136,18 @@
 
                             <div class="col-md-6">
                                 <label for="timeID">Pick-up Time </label>
-                                <div class="input-group flex-nowrap">
+                                <div class="input-group ">
                                     <span class="input-group-text" id="addon-wrapping"> <i
                                             class="bi bi-watch"></i></span>
-
                                     <input type="text" class="form-control" name="time" id="timeID" value="" required />
+                                    <button class="btn btn-primary" type="button" id="btnNowID">Now</button>
+                                    <div class="invalid-feedback">Please specify a valid time</div>
                                 </div>
-                                <div class="invalid-feedback">Please specify a valid time</div>
                             </div>
                         </div>
                     </div>
-                    <input type="button" class="btn btn-primary mt-5 float-end" value="Book a Taxi" id="submitID"
-                        name="submitbtn">
+                    <button type="button" class="btn btn-primary mt-5 float-end" id="submitID" name="submitbtn">Book a
+                        Taxi <i class="bi bi-arrow-right"></i></button>
                 </form>
             </div>
         </div>
