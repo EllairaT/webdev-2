@@ -1,6 +1,6 @@
-
--- Creating database. Why are we using txt files for this?
-CREATE DATABASE taxibooking
+-- SQL file just so i can easily see typos. I'm blind. 
+-- Creating database. 
+CREATE DATABASE taxibooking;
 
 -- Create customer table
 CREATE TABLE IF NOT EXISTS customers(
@@ -46,3 +46,4 @@ CREATE TABLE IF NOT EXISTS admins(
     ADMIN_NAME VARCHAR(255) NOT NULL,
     ADMIN_PASS VARCHAR(2000) NOT NULL
 );
+

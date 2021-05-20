@@ -1,0 +1,27 @@
+$orange: #ce5d01 !default;
+
+/* Full grid border */
+.ui-datepicker-calendar td {
+  border: 0px #d8d8d8 !important;
+}
+
+.ui-state-default {
+  border: 0px !important;
+}
+
+.ui-datepicker td:hover {
+  background-color: $orange;
+}
+
+.ui-datepicker-current-day a {
+  background-color: $orange !important;
+  color: white !important;
+}
+
+.ui-datepicker {
+  border: 0px !important;
+}
+
+span.header-secondary-text {
+  color: $orange;
+}
