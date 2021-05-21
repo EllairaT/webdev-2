@@ -17,8 +17,7 @@ $(function () {
   $("#timeID").timepicker({
     timeFormat: "HH:mm",
     interval: 15,
-    minTime: "12:00am",
-    maxTime: "11:45pm",
+    maxTime: date,
     defaultTime: "now",
     dynamic: true,
     dropdown: true,
@@ -184,7 +183,7 @@ function validateTime() {
 
 function validatePhone() {
   var val = $("#phoneID");
-  var regexp = new RegExp("[-s./0-9]{10,12}$");
+  var regexp = new RegExp("^(+0?1s)?(?d{3})?[s.-]d{3}[s.-]d{4}$");
   if (regexp.test(val.val())) {
     showValidation(val, true);
     return true;
