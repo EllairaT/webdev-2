@@ -3,23 +3,39 @@
 <html>
 
     <head>
-        <!-- jquery, jquery ui-->
+        <!-- jquery, jquery ui bootstrap, plugins -->
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" />
-        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
-        <!-- bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+            integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
 
         <!-- custom script -->
         <script src="js/booking.js"></script>
         <link rel="stylesheet" href="css/booking.css">
-
         <title>
             Book a taxi
         </title>
@@ -69,7 +85,7 @@
         <div class="container">
 
             <div class="booking-content card border-0 m-5">
-                <form id="booking-form" autocomplete="off" novalidate>
+                <form id="booking-form" name="bform" autocomplete="off" novalidate>
                     <div class="input-group p-3">
                         <div class="row g-3">
 
@@ -98,14 +114,14 @@
                                 <small class="text-muted">Optional</small>
                             </div>
 
-                            <div class="col-lg-1  col-md-6">
+                            <div class="col-lg-3  col-md-6">
                                 <label for="snumberID">Street # </label>
                                 <input type="text" class="form-control" name="snumber" id="s-numberID" maxlength="3"
                                     required />
                                 <div class="invalid-feedback">Please add a street number</div>
                             </div>
 
-                            <div class="col-lg-10 col-md-12">
+                            <div class="col-lg-8 col-md-12">
                                 <label for="stnameID">Street Name </label>
                                 <input type="text" class="form-control" name="stname" id="st-nameID" required />
                                 <div class="invalid-feedback">Please add a street name</div>
@@ -127,11 +143,12 @@
 
                             <div class="col-md-6">
                                 <label for="dateID">Pick-up date </label>
-                                <div class="input-group flex-nowrap">
+                                <div class="input-group">
                                     <span class="input-group-text" id="addon-wrapping"> <i
                                             class="bi bi-calendar-check-fill"></i></span>
                                     <input type="text" class="form-control is-valid" name="date" id="dateID"
                                         onkeydown="event.preventDefault()" required />
+                                    <button class="btn btn-primary" type="button" id="btnTodayID">Today</button>
                                 </div>
                                 <div class="invalid-feedback">Please specify a valid date</div>
                             </div>
@@ -141,7 +158,8 @@
                                 <div class="input-group ">
                                     <span class="input-group-text" id="addon-wrapping"> <i
                                             class="bi bi-watch"></i></span>
-                                    <input type="text" class="form-control" name="time" id="timeID" value="" required />
+                                    <input type="text" class="form-control is-valid" name="time" id="timeID" value=""
+                                        required />
                                     <button class="btn btn-primary" type="button" id="btnNowID">Now</button>
                                     <div class="invalid-feedback">Please specify a valid time</div>
                                 </div>

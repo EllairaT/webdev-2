@@ -1,0 +1,24 @@
+{
+  "name": "assign2",
+  "version": "1.0.0",
+  "description": "Assignment 2 for web development. Let's see how fast I get this done.",
+  "main": "index.js",
+  "type": "commonjs",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EllairaT/webdev-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EllairaT/webdev-2/issues"
+  },
+  "homepage": "https://github.com/EllairaT/webdev-2#readme"
+}

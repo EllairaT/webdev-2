@@ -1,27 +1,43 @@
 $orange: #ce5d01 !default;
-
-/* Full grid border */
-.ui-datepicker-calendar td {
-  border: 0px #d8d8d8 !important;
-}
-
-.ui-state-default {
-  border: 0px !important;
-}
-
-.ui-datepicker td:hover {
-  background-color: $orange;
-}
-
-.ui-datepicker-current-day a {
-  background-color: $orange !important;
-  color: white !important;
-}
-
-.ui-datepicker {
-  border: 0px !important;
-}
+$black: black;
 
 span.header-secondary-text {
   color: $orange;
 }
+
+//simplified css from @gaharrington on github
+.dtp table.dtp-picker-days tr > td > a.selected,
+.dtp table.dtp-picker-days tr > td > a.selected.hilite,
+.dtp div.dtp-date,
+.dtp div.dtp-time,
+.dtp > .dtp-content > .dtp-date-view > header.dtp-header,
+.dtp .dtp-picker-time > a.dtp-select-hour.selected {
+  background: $black;
+}
+
+.dtp table.dtp-picker-days tr > td > a.selected.hilite,
+.dtp table.dtp-picker-days tr > td > a.hilite:not(.selected),
+.dtp div.dtp-year-btn,
+.dtp div.dtp-actual-year {
+  color: $black;
+}
+
+.dtp .dtp-actual-meridien a.selected,
+.dtp .dtp-hand.on {
+  background: $black;
+}
+
+.dtp table.dtp-picker-days tr > td > a.hilite:not(.selected),
+.dtp div.dtp-actual-time.p60 span.selected {
+  color: $black;
+}
+
+.dtp div.dtp-year-btn,
+.dtp div.dtp-actual-year,
+.dtp div.dtp-actual-maxtime {
+  color: $orange;
+}
+svg #h-1.dtp-select-hour {
+  background: $black;
+}
+/*# sourceMappingURL=bootstrap-material-datetimepicker.min.css.map */
