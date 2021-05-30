@@ -4,7 +4,6 @@
 
     <head>
         <!-- jquery, jquery ui bootstrap, plugins -->
-
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -24,15 +23,12 @@
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-
-        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-
         <!-- custom script -->
         <script src="js/booking.js"></script>
         <link rel="stylesheet" href="css/booking.css">
@@ -68,12 +64,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./booking.html">Book</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
                     <!-- make this a modal -->
                     <li class="nav-item">
                         <a class="nav-link" href="./admin.html">Login</a>
@@ -103,7 +93,7 @@
                                     </span>
                                     <input type="text" class="form-control" name="phone" id="phoneID" maxlength="12"
                                         required />
-                                    <div id="feedback" class="invalid-feedback">Please add a valid phone number</div>
+                                    <div class="invalid-feedback">Please add a valid phone number</div>
                                 </div>
                             </div>
 
@@ -169,8 +159,49 @@
                     <button type="button" class="btn btn-primary mt-5 float-end" id="submitID" name="submitbtn">Book a
                         Taxi <i class="bi bi-arrow-right"></i></button>
                 </form>
+
+                <!-- confirmation -->
+
+                <div class="modal fade" tabindex="-1" id="confirm" aria-labelledby="confirmModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Booking Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p name="reference">
+                                <ul class=" list-unstyled text-center">
+                                    <li>Thank you! Your booking reference number is</li>
+                                    <li><span class="lead text-orange" id="ref-no"></span>.</li>
+                                    <li>You will be picked up in front of your provided address</li>
+                                    <li><span class="lead text-orange" id="stnum-ref"></span>
+                                        <span class="lead text-orange" id="addr-ref"></span>
+                                    </li>
+                                    <li>at <span class="lead text-orange" id="time-ref"></span> on <span
+                                            class="lead text-orange" id="date-ref"></span></li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <!-- there is an issue with bootstrap 5's modal. The current fix is putting the script tags with bootstrap in them at the end of body. -->
+
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
     </body>
 
 </html>

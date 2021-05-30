@@ -1,8 +1,6 @@
 //do this on page load
 var date = moment();
 $(function () {
-  //set current date
-
   //initialise date and time ------------
   $("#timeID").val(date.format("HH:mm"));
   $("#dateID").val(date.format("D/MM/YYYY"));
@@ -39,13 +37,28 @@ $(function () {
     e.preventDefault();
   });
 
+  $("#cnameID").on("input", function () {
+    $isEmpty = $(this).val() ? true : false;
+    showValidation($(this), $isEmpty);
+  });
+
+  $("#s-numberID").on("input", function () {
+    $isEmpty = $(this).val() ? true : false;
+    showValidation($(this), $isEmpty);
+  });
+
+  $("#st-nameID").on("input", function () {
+    $isEmpty = $(this).val() ? true : false;
+    showValidation($(this), $isEmpty);
+  });
+
   // suggest suburb name
-  $("#sb-nameID").on("keydown", function () {
+  $("#sb-nameID").on("keyup", function () {
     getSuburbData($("#sb-nameID"));
   });
 
   // suggest destination suburb
-  $("#ds-nameID").on("keydown", function () {
+  $("#ds-nameID").on("keyup", function () {
     getSuburbData($("#ds-nameID"));
   });
 
@@ -54,7 +67,7 @@ $(function () {
     if (!($("#sb-nameID").val() == "")) {
       validateSuburb($("#sb-nameID"));
     } else {
-      console.log("null. not validating.");
+      ("null. not validating.");
     }
   });
 
@@ -62,15 +75,15 @@ $(function () {
     if (!($("#ds-nameID").val() == "")) {
       validateSuburb($("#ds-nameID"));
     } else {
-      console.log("null. not validating.");
+      ("null. not validating.");
     }
   });
 
-  $("#phoneID").on("change", function () {
+  $("#phoneID").on("input", function () {
     validatePhone();
   });
 
-  $("#timeID").on("change", function () {
+  $("#timeID").on("input", function () {
     validateTime();
   });
 
@@ -83,7 +96,6 @@ $(function () {
     e.preventDefault();
     if (validateForm()) {
       sendFormData();
-      console.log("submitted!");
     }
   });
 });
@@ -94,7 +106,6 @@ var url = "bookingprocess.php";
 //return all suburb names
 function getSuburbData(val) {
   xhr.open("GET", url + "?" + val.attr("name") + "=" + val.val());
-  console.log(url + "?" + val.attr("name") + "=" + val.val());
   xhr.responseType = "json";
   xhr.onload = function () {
     if (this.status == 200) {
@@ -102,6 +113,8 @@ function getSuburbData(val) {
       val.autocomplete({
         source: this.response.data,
       });
+    } else {
+      console.log("bad request");
     }
   };
   xhr.send();
@@ -121,7 +134,7 @@ function validateSuburb(val) {
       }
     } else {
       //show modal for this one
-      console.log("bad request");
+      ("bad request");
     }
   };
   xhr.send();
@@ -136,26 +149,19 @@ function validateForm() {
       //get required fields
 
       if ($(this).prop("required")) {
-        console.log("checking: " + $(this).attr("name"));
+        let isValid = false;
         // if field is empty, add a false flag to array
         if (!$(this).val()) {
-          $(this).addClass("is-invalid");
           flags.push(false);
         } else {
-          $(this).removeClass("is-invalid");
+          isValid = true;
           flags.push(true);
         }
-        console.log($(flags).get(-1));
+
+        showValidation($(this), isValid);
       }
     });
 
-  if (validatePhone()) {
-    flags.push(true);
-  } else {
-    flags.push(false);
-  }
-
-  console.log(flags);
   if (flags.includes(false)) {
     return false;
   } else {
@@ -163,27 +169,43 @@ function validateForm() {
   }
 }
 
-// send entire form as json to server
+// send entire form to server
 function sendFormData() {
-  var dataToSend = new FormData(document.getElementById("booking-form"));
-  //extra parameter to let the server know that the form has been submitted.
-  dataToSend.append("submitted", true);
-  xhr.open("POST", url);
-  xhr.responseType = "json";
-  xhr.onload = function () {
-    if (this.status == 200) {
-      console.log(this.response);
-    } else {
-      console.log("Bad request");
-    }
-  };
+  var thisForm = $("#booking-form").serialize();
+  $.ajax({
+    url: "bookingprocess.php",
+    method: "POST",
+    dataType: "json",
+    data: { action: "submit", formdata: thisForm },
+    success: function (data) {
+      if (data.status) {
+        showConfirmation(data.confirmation);
+      } else {
+        alert("bad request");
+      }
+    },
+    error: function (xhr, status, error) {
+      alert(xhr.responseText);
+    },
+  });
+}
 
-  xhr.send(dataToSend);
+function showConfirmation(data) {
+  console.log(data);
+  $("#ref-no").text(data.customerref);
+  $("#stnum-ref").text(data.snumber);
+  $("#addr-ref").text(data.stname);
+  $("#time-ref").text(data.time);
+  $("#date-ref").text(data.date);
+
+  $("#confirm").modal("show");
+  document.getElementById("booking-form").reset();
 }
 
 function showValidation(val, bool) {
   //if input field is not empty, validate its contents
-  if (val.val()) {
+
+  if (val[0]) {
     if (bool) {
       val.removeClass("is-invalid");
       val.addClass("is-valid");
@@ -217,14 +239,14 @@ function dateWasChanged() {
   var selectedTime = moment($("#timeID").val(), "HH:mm", true);
 
   var nextDay = moment(date).add(1, "days");
-  console.log(nextDay);
+  nextDay;
 
   // reset the time picker if the selected date is after current date
   if (selectedDate.isAfter(currentDate)) {
     $("#timeID").val("00:00");
     $("#timeID").bootstrapMaterialDatePicker("setMinDate", selectedDate);
   } else {
-    console.log(selectedDate, currentDate);
+    selectedDate, currentDate;
     $("#timeID").val(currentTime.format("HH:mm"));
     $("#timeID").bootstrapMaterialDatePicker("setMinDate", currentDate);
   }

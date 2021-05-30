@@ -2,6 +2,10 @@ span.header-secondary-text {
   color: #ce5d01;
 }
 
+span.text-orange {
+  color: #ce5d01;
+}
+
 .dtp table.dtp-picker-days tr > td > a.selected,
 .dtp table.dtp-picker-days tr > td > a.selected.hilite,
 .dtp div.dtp-date,

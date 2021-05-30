@@ -5,13 +5,31 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+            integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
         <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="js/booking.js"></script>
-
+        <!-- custom script -->
+        <script src="js/admin.js"></script>
+        <link rel="stylesheet" href="css/booking.css">
         <title>
             Login
         </title>
@@ -23,18 +41,18 @@
                 <div>
                     <a class="navbar-brand" href="#">
                         <img src="img/logo.png" height="50">
-                        <span class="text-muted">Cabs</span>Online</a>
+                        Cabs <span class="header-secondary-text">Online</span></a>
                     <h6 class="text-muted">Our drivers are probably cats.</h6>
                 </div>
 
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbartoggler"
+                aria-controls="navbartoggler" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="navbar-collapse collapse show" id="navbarColor02" style="">
+            <div class="navbar-collapse collapse mx-3" id="navbartoggler">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Home
@@ -44,29 +62,108 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./booking.html">Book</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
                     <!-- make this a modal -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./admin.html">Login</a>
+                        <a class="nav-link" href="./admin.html" data-bs-toggle="modal"
+                            data-bs-target="#LoginModalBackdrop">Login</a>
                     </li>
                 </ul>
             </div>
-
         </nav>
 
-        <div class="container">
+        <div class="container-fluid" id="mainCont">
 
-            <div class="booking-content card m-5">
-                <Form>
+            <div class="row g-3 m-5">
+                <form>
 
-                </Form>
+                    <div id="search" class="w-50">
+                        <div class="input-group mx-auto">
+                            <span class="input-group-text" id="addon-wrapping">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" name="bsearch" class="form-control" id="bookingSearch">
+                            <button type="text" name="sbutton" class="btn btn-primary">Search</button>
+                        </div>
+                        <small class="text-muted">Search by reference number, or search nothing to find bookings with
+                            pickup times 2 hours from now.</small>
+                    </div>
+                </form>
+
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Booking Reference #</th>
+                            <th scope="col">customer name</th>
+                            <th scope="col">phone</th>
+                            <th scope="col">pick-up suburb</th>
+                            <th scope="col">destination suburb</th>
+                            <th scope="col">pick-up date</th>
+                            <th scope="col">pick-up time</th>
+                            <th scope="col">status</th>
+                            <th scope="col">assign</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-warning">
+                            <th scope="row">Active</th>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td><button name="assign" class="btn btn-success">Assign</button></td>
+
+                        </tr>
+                        <tr class="table-warning">
+                            <th scope="row">Default</th>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td><button name="assign" class="btn btn-success">Assign</button></td>
+
+                        </tr>
+                        <tr class="table-warning">
+                            <th scope="row">Primary</th>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td><button name="assign" class="btn btn-success">Assign</button></td>
+
+                        </tr>
+                        <tr class="table-warning">
+                            <th scope="row">Secondary</th>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td>Column content</td>
+                            <td><button name="assign" class="btn btn-success">Assign</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <!-- there is an issue with bootstrap 5's modal. The current fix is putting the script tags with bootstrap in them at the end of body. -->
+
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
     </body>
 
 </html>
