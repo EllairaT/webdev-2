@@ -31,7 +31,7 @@
         <script src="js/admin.js"></script>
         <link rel="stylesheet" href="css/booking.css">
         <title>
-            Login
+            CabsOnline
         </title>
     </head>
 
@@ -71,7 +71,7 @@
             </div>
         </nav>
 
-        <div class="container-fluid" id="mainCont">
+        <div id="content" class="container-fluid" id="mainCont">
 
             <div class="row g-3 m-5">
                 <form>
@@ -82,7 +82,7 @@
                                 <i class="bi bi-search"></i>
                             </span>
                             <input type="text" name="bsearch" class="form-control" id="bookingSearch">
-                            <button type="text" name="sbutton" class="btn btn-primary">Search</button>
+                            <button type="text" name="sbutton" class="btn btn-primary" id="searchBtn">Search</button>
                         </div>
                         <small class="text-muted">Search by reference number, or search nothing to find bookings with
                             pickup times 2 hours from now.</small>
@@ -103,54 +103,8 @@
                             <th scope="col">assign</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="table-warning">
-                            <th scope="row">Active</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td><button name="assign" class="btn btn-success">Assign</button></td>
+                    <tbody id="rows">
 
-                        </tr>
-                        <tr class="table-warning">
-                            <th scope="row">Default</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td><button name="assign" class="btn btn-success">Assign</button></td>
-
-                        </tr>
-                        <tr class="table-warning">
-                            <th scope="row">Primary</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td><button name="assign" class="btn btn-success">Assign</button></td>
-
-                        </tr>
-                        <tr class="table-warning">
-                            <th scope="row">Secondary</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td><button name="assign" class="btn btn-success">Assign</button></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
